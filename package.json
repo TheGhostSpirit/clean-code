@@ -1,0 +1,25 @@
+{
+  "name": "clean-code",
+  "version": "1.0.0",
+  "description": "solid library kata",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npx ts-node src/index.ts"
+  },
+  "author": "TheGhostSpirit",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.0"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/nedb": "^1.8.11",
+    "@types/yargs": "^16.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
