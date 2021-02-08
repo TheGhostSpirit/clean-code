@@ -15,8 +15,16 @@ export class BookRepository implements Repository<Book> {
     return this.db.findOne(book, {});
   }
 
+  findWhere(where: Partial<Book>): Promise<Book[]> {
+    return this.db.find(where, {});
+  }
+
   add(book: Book): Promise<Book> {
     return this.db.insert(book);
+  }
+
+  update(book: Book, fieldsToUpdate: Partial<Book>): Promise<void> {
+    return this.db.update({ title: book.title, author: book.author }, fieldsToUpdate);
   }
 
 }
