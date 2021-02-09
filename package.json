@@ -5,20 +5,32 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx ts-node src/index.ts"
+    "start": "npx ts-node src/index.ts",
+    "test": "npx jest --testTimeout=10000"
   },
   "author": "TheGhostSpirit",
   "license": "ISC",
   "engines": {
     "node": ">=14.0"
   },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "\\.ts$": "ts-jest"
+    }
+  },
   "dependencies": {
     "nedb": "^1.8.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.20",
     "@types/nedb": "^1.8.11",
     "@types/yargs": "^16.0.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }
