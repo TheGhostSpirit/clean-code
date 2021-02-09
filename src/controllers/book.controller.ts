@@ -11,7 +11,7 @@ const listBooks = async (): Promise<Partial<Book>[]> => {
 };
 
 const borrowBook = async (book: Book, login: string): Promise<void> => {
-  const user = await userRepository.findOne(login);
+  const user = await userRepository.findOne({ login });
 
   if (!user || user.role === 'Guest') {
     throw Error('Invalid operation for current user');
@@ -33,7 +33,7 @@ const borrowBook = async (book: Book, login: string): Promise<void> => {
 };
 
 const returnBook = async (book: Book, login: string): Promise<void> => {
-  const user = await userRepository.findOne(login);
+  const user = await userRepository.findOne({ login });
 
   if (!user || user.role === 'Guest') {
     throw Error('Invalid operation for current user');
@@ -49,7 +49,7 @@ const returnBook = async (book: Book, login: string): Promise<void> => {
 };
 
 const addBook = async (book: Book, login: string): Promise<Book> => {
-  const user = await userRepository.findOne(login);
+  const user = await userRepository.findOne({ login });
 
   if (!user || user.role !== 'Librarian') {
     throw Error('Invalid operation for current user');
