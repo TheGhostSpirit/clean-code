@@ -37,9 +37,9 @@ export class Database<T> {
     });
   }
 
-  update(query: any, fieldsToUpdate: Partial<T>): Promise<void> {
+  update(query: any, update: Partial<T>): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.dataStore.update(query, { $set: fieldsToUpdate }, {}, err => {
+      this.dataStore.update(query, { $set: update }, {}, err => {
         if (err) {
           return reject(err);
         }

@@ -11,8 +11,20 @@ export class UserRepository implements Repository<User> {
     return this.db.find({}, {});
   }
 
-  findOne(login: string): Promise<User | null> {
-    return this.db.findOne({ login }, {});
+  findOne(user: Partial<User>): Promise<User | null> {
+    return this.db.findOne({ login: user.login }, {});
+  }
+
+  findWhere(where: Partial<User>): Promise<User[]> {
+    return this.db.find(where, {});
+  }
+
+  add(user: User): Promise<User> {
+    return this.db.insert(user);
+  }
+
+  update(user: User, update: Partial<User>): Promise<void> {
+    return this.db.update({ login: user.login }, update);
   }
 
 }

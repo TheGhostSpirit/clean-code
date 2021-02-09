@@ -23,8 +23,8 @@ export class BookRepository implements Repository<Book> {
     return this.db.insert(book);
   }
 
-  update(book: Book, fieldsToUpdate: Partial<Book>): Promise<void> {
-    return this.db.update({ title: book.title, author: book.author }, fieldsToUpdate);
+  update(book: Book, update: Partial<Book>): Promise<void> {
+    return this.db.update({ title: book.title, author: book.author }, update);
   }
 
 }
