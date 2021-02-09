@@ -15,6 +15,13 @@ export const actionMapper = new Map<ACTIONS, (...args: any[]) => Promise<any>>(
     [
       'return',
       (book: Book, login: string) => bookController.returnBook(book, login)
+        .then(() => console.log('Book returned!'))
+        .catch(err => console.error(err.message))
+    ],
+    [
+      'borrow',
+      (book: Book, login: string) => bookController.borrowBook(book, login)
+        .then(() => console.log('Book borrowed!'))
         .catch(err => console.error(err.message))
     ],
   ]

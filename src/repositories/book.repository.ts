@@ -12,7 +12,7 @@ export class BookRepository implements Repository<Book> {
   }
 
   findOne(book: Partial<Book>): Promise<Book | null> {
-    return this.db.findOne(book, {});
+    return this.db.findOne({ title: book.title, author: book.author }, {});
   }
 
   findWhere(where: Partial<Book>): Promise<Book[]> {
